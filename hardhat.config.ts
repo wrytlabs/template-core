@@ -58,13 +58,34 @@ const config: HardhatUserConfig = {
 			accounts: [wallet.privateKey],
 			timeout: 50_000,
 		},
+		citrea: {
+			url: `https://rpc.testnet.citrea.xyz`,
+			chainId: 5115,
+			gas: 'auto',
+			gasPrice: 'auto',
+			accounts: [wallet.privateKey],
+			timeout: 50_000,
+		},
 	},
 	etherscan: {
-		apiKey: etherscan,
+		apiKey: {
+			// mainnet: etherscan,
+			citrea: 'your API key',
+		},
+		customChains: [
+			{
+				network: 'citrea',
+				chainId: 5115,
+				urls: {
+					apiURL: 'https://explorer.testnet.citrea.xyz/api',
+					browserURL: 'https://explorer.testnet.citrea.xyz',
+				},
+			},
+		],
 	},
-	sourcify: {
-		enabled: true,
-	},
+	// sourcify: {
+	// 	enabled: true,
+	// },
 	namedAccounts: {
 		deployer: {
 			default: 0,

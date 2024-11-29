@@ -136,6 +136,10 @@ Contract contracts/Storage.sol:Storage already verified on network polygon:
 
 `npx hardhat verify --network polygon --constructor-args ./ignition/constructor-args/$FILE.js $ADDRESS`
 
+or manually include unrelated contracts
+
+`npx hardhat ignition verify $DEPLOYMENT --include-unrelated-contracts`
+
 ### 6 Prepare NPM Package Support
 
 -   [x] Export ready to use TypeScript ABIs
