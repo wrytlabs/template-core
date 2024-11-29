@@ -21,6 +21,52 @@ export const MembershipABI = [
 		type: 'constructor',
 	},
 	{
+		inputs: [],
+		name: 'AccessControlBadConfirmation',
+		type: 'error',
+	},
+	{
+		inputs: [
+			{
+				internalType: 'address',
+				name: 'account',
+				type: 'address',
+			},
+			{
+				internalType: 'bytes32',
+				name: 'neededRole',
+				type: 'bytes32',
+			},
+		],
+		name: 'AccessControlUnauthorizedAccount',
+		type: 'error',
+	},
+	{
+		inputs: [],
+		name: 'NotAdmin',
+		type: 'error',
+	},
+	{
+		inputs: [],
+		name: 'NotAtLeastExecutor',
+		type: 'error',
+	},
+	{
+		inputs: [],
+		name: 'NotAtLeastMember',
+		type: 'error',
+	},
+	{
+		inputs: [],
+		name: 'NotExecutor',
+		type: 'error',
+	},
+	{
+		inputs: [],
+		name: 'NotMember',
+		type: 'error',
+	},
+	{
 		anonymous: false,
 		inputs: [
 			{
@@ -174,7 +220,26 @@ export const MembershipABI = [
 				type: 'address',
 			},
 		],
-		name: 'checkAllRoles',
+		name: 'checkAtLeastExecutor',
+		outputs: [
+			{
+				internalType: 'bool',
+				name: '',
+				type: 'bool',
+			},
+		],
+		stateMutability: 'view',
+		type: 'function',
+	},
+	{
+		inputs: [
+			{
+				internalType: 'address',
+				name: 'addr',
+				type: 'address',
+			},
+		],
+		name: 'checkAtLeastMember',
 		outputs: [
 			{
 				internalType: 'bool',
@@ -194,25 +259,6 @@ export const MembershipABI = [
 			},
 		],
 		name: 'checkExecutor',
-		outputs: [
-			{
-				internalType: 'bool',
-				name: '',
-				type: 'bool',
-			},
-		],
-		stateMutability: 'view',
-		type: 'function',
-	},
-	{
-		inputs: [
-			{
-				internalType: 'address',
-				name: 'addr',
-				type: 'address',
-			},
-		],
-		name: 'checkExecutorOrAdmin',
 		outputs: [
 			{
 				internalType: 'bool',
@@ -269,49 +315,6 @@ export const MembershipABI = [
 				type: 'bytes32',
 			},
 			{
-				internalType: 'uint256',
-				name: 'index',
-				type: 'uint256',
-			},
-		],
-		name: 'getRoleMember',
-		outputs: [
-			{
-				internalType: 'address',
-				name: '',
-				type: 'address',
-			},
-		],
-		stateMutability: 'view',
-		type: 'function',
-	},
-	{
-		inputs: [
-			{
-				internalType: 'bytes32',
-				name: 'role',
-				type: 'bytes32',
-			},
-		],
-		name: 'getRoleMemberCount',
-		outputs: [
-			{
-				internalType: 'uint256',
-				name: '',
-				type: 'uint256',
-			},
-		],
-		stateMutability: 'view',
-		type: 'function',
-	},
-	{
-		inputs: [
-			{
-				internalType: 'bytes32',
-				name: 'role',
-				type: 'bytes32',
-			},
-			{
 				internalType: 'address',
 				name: 'account',
 				type: 'address',
@@ -355,7 +358,7 @@ export const MembershipABI = [
 			},
 			{
 				internalType: 'address',
-				name: 'account',
+				name: 'callerConfirmation',
 				type: 'address',
 			},
 		],
@@ -380,6 +383,90 @@ export const MembershipABI = [
 		name: 'revokeRole',
 		outputs: [],
 		stateMutability: 'nonpayable',
+		type: 'function',
+	},
+	{
+		inputs: [
+			{
+				internalType: 'bytes4',
+				name: 'interfaceId',
+				type: 'bytes4',
+			},
+		],
+		name: 'supportsInterface',
+		outputs: [
+			{
+				internalType: 'bool',
+				name: '',
+				type: 'bool',
+			},
+		],
+		stateMutability: 'view',
+		type: 'function',
+	},
+	{
+		inputs: [
+			{
+				internalType: 'address',
+				name: 'addr',
+				type: 'address',
+			},
+		],
+		name: 'verifyAdmin',
+		outputs: [],
+		stateMutability: 'view',
+		type: 'function',
+	},
+	{
+		inputs: [
+			{
+				internalType: 'address',
+				name: 'addr',
+				type: 'address',
+			},
+		],
+		name: 'verifyAtLeastExecutor',
+		outputs: [],
+		stateMutability: 'view',
+		type: 'function',
+	},
+	{
+		inputs: [
+			{
+				internalType: 'address',
+				name: 'addr',
+				type: 'address',
+			},
+		],
+		name: 'verifyAtLeastMember',
+		outputs: [],
+		stateMutability: 'view',
+		type: 'function',
+	},
+	{
+		inputs: [
+			{
+				internalType: 'address',
+				name: 'addr',
+				type: 'address',
+			},
+		],
+		name: 'verifyExecutor',
+		outputs: [],
+		stateMutability: 'view',
+		type: 'function',
+	},
+	{
+		inputs: [
+			{
+				internalType: 'address',
+				name: 'addr',
+				type: 'address',
+			},
+		],
+		name: 'verifyMember',
+		outputs: [],
+		stateMutability: 'view',
 		type: 'function',
 	},
 ] as const;

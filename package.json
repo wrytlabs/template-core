@@ -13,12 +13,14 @@
 		"test": "tests"
 	},
 	"scripts": {
-		"wallet:info": "npx ts-node helper/WalletInfo.ts",
+		"wallet": "npx ts-node helper/wallet.info.ts",
 		"compile": "npx hardhat compile",
-		"build": "tsup",
-		"publish": "npm publish --access public",
 		"test": "npx hardhat test",
-		"coverage": "npx hardhat coverage"
+		"coverage": "npx hardhat coverage",
+		"deploy": "npx hardhat ignition deploy",
+		"verify": "npx hardhat verify",
+		"build": "tsup",
+		"publish": "npm publish --access public"
 	},
 	"repository": {
 		"type": "git",

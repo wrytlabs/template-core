@@ -6,6 +6,7 @@ export * from './address.config';
 export * from './abis/AccessControl';
 export * from './abis/Membership';
 export * from './abis/Ownable';
+export * from './abis/Storage';
 
 // constructor args
 // FIXME: move to export and in TS

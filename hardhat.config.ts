@@ -12,9 +12,24 @@ import { getChildFromSeed } from './helper/wallet';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const seed = process.env.DEPLOYER_ACCOUNT_SEED;
+// ---------------------------------------------------------------------------------------
+
+const index = process.env.DEPLOYER_SEED_INDEX;
+const start = index && index?.length > 0 ? parseInt(index) : 0;
+
+const seed = process.env.DEPLOYER_SEED;
 if (!seed) throw new Error('Failed to import the seed string from .env');
-const w0 = getChildFromSeed(seed, 0); // deployer
+const wallet = getChildFromSeed(seed, start); // deployer
+console.log('### Deployer Wallet ###');
+console.log(wallet);
+
+const alchemy = process.env.ALCHEMY_RPC_KEY;
+if (alchemy?.length == 0 || !alchemy) console.log('WARN: No Alchemy Key found in .env');
+
+const etherscan = process.env.ETHERSCAN_API;
+if (etherscan?.length == 0 || !etherscan) console.log('WARN: No Etherscan Key found in .env');
+
+// ---------------------------------------------------------------------------------------
 
 const config: HardhatUserConfig = {
 	solidity: {
@@ -27,17 +42,25 @@ const config: HardhatUserConfig = {
 		},
 	},
 	networks: {
+		mainnet: {
+			url: `https://eth-mainnet.g.alchemy.com/v2/${alchemy}`,
+			chainId: 1,
+			gas: 'auto',
+			gasPrice: 'auto',
+			accounts: [wallet.privateKey],
+			timeout: 50_000,
+		},
 		polygon: {
-			url: process.env.RPC_URL_POLYGON,
+			url: `https://polygon-mainnet.g.alchemy.com/v2/${alchemy}`,
 			chainId: 137,
 			gas: 'auto',
 			gasPrice: 'auto',
-			accounts: [w0.privateKey],
+			accounts: [wallet.privateKey],
 			timeout: 50_000,
 		},
 	},
 	etherscan: {
-		apiKey: process.env.POLYSCAN_API,
+		apiKey: etherscan,
 	},
 	sourcify: {
 		enabled: true,
@@ -65,7 +88,7 @@ const config: HardhatUserConfig = {
 	abiExporter: [
 		{
 			path: './abi',
-			clear: true,
+			clear: false,
 			runOnCompile: true,
 			flat: false,
 			spacing: 4,
@@ -73,7 +96,7 @@ const config: HardhatUserConfig = {
 		},
 		{
 			path: './abi/signature',
-			clear: true,
+			clear: false,
 			runOnCompile: true,
 			flat: false,
 			spacing: 4,
