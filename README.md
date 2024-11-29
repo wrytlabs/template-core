@@ -156,19 +156,6 @@ JSON
 ] as const;
 ```
 
-/\*\*
-
--   Provides a mapping of contract addresses for the Membership and Storage contracts
--   deployed on different blockchain networks.
--
--   The `ADDRESS` object contains the contract addresses for the `mainnet` and `polygon`
--   networks, with the network ID as the key. The `zeroAddress` is used as a placeholder
--   for the `mainnet` network, as the contracts have not been deployed there yet.
--
--   This configuration is used to provide easy access to the deployed contract addresses
--   in the npm package.
-    \*/
-
 ### 6.2 TypeScript Address Config
 
 Provides a mapping of contract addresses for the Membership and Storage contracts deployed on different blockchain networks.
