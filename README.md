@@ -6,6 +6,7 @@
 // yarn run <command> args...
 
 "wallet": "npx ts-node helper/wallet.info.ts",
+"wallet:info": "npx ts-node helper/wallet.info.ts",
 
 "compile": "npx hardhat compile",
 "test": "npx hardhat test",
@@ -14,8 +15,8 @@
 "deploy": "npx hardhat ignition deploy",
 "verify": "npx hardhat verify",
 
-"build": "tsup",
-"publish": "npm publish --access public"
+"npm:build": "tsup",
+"npm:publish": "npm publish --access public"
 ```
 
 ### 1. Install dependencies
@@ -60,7 +61,7 @@ yarn run coverage               	# Generate test coverage report
 > Deployment modules are located in /ignition/modules. Deploy your contracts:
 
 ```Bash
-yarn run deploy ignition/modules/Membership.ts --network polygon --verify --deployment-id membership0
+yarn run deploy ignition/modules/MembershipFactory.ts --network polygon --verify --deployment-id Membership01
 
 --> increase: deployment-id
 ```

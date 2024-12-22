@@ -1,6 +1,6 @@
 {
 	"name": "@wrytlabs/manager-core",
-	"version": "0.0.2",
+	"version": "0.0.1",
 	"private": false,
 	"license": "MIT",
 	"main": "./dist/index.js",
@@ -14,13 +14,14 @@
 	},
 	"scripts": {
 		"wallet": "npx ts-node helper/wallet.info.ts",
+		"wallet:info": "npx ts-node helper/wallet.info.ts",
 		"compile": "npx hardhat compile",
 		"test": "npx hardhat test",
 		"coverage": "npx hardhat coverage",
 		"deploy": "npx hardhat ignition deploy",
 		"verify": "npx hardhat verify",
-		"build": "tsup",
-		"publish": "npm publish --access public"
+		"npm:build": "tsup",
+		"npm:publish": "npm publish --access public"
 	},
 	"repository": {
 		"type": "git",

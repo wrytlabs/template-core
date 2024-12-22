@@ -42,31 +42,6 @@ export const MembershipABI = [
 		type: 'error',
 	},
 	{
-		inputs: [],
-		name: 'NotAdmin',
-		type: 'error',
-	},
-	{
-		inputs: [],
-		name: 'NotAtLeastExecutor',
-		type: 'error',
-	},
-	{
-		inputs: [],
-		name: 'NotAtLeastMember',
-		type: 'error',
-	},
-	{
-		inputs: [],
-		name: 'NotExecutor',
-		type: 'error',
-	},
-	{
-		inputs: [],
-		name: 'NotMember',
-		type: 'error',
-	},
-	{
 		anonymous: false,
 		inputs: [
 			{
@@ -196,101 +171,6 @@ export const MembershipABI = [
 	{
 		inputs: [
 			{
-				internalType: 'address',
-				name: 'admin',
-				type: 'address',
-			},
-		],
-		name: 'checkAdmin',
-		outputs: [
-			{
-				internalType: 'bool',
-				name: '',
-				type: 'bool',
-			},
-		],
-		stateMutability: 'view',
-		type: 'function',
-	},
-	{
-		inputs: [
-			{
-				internalType: 'address',
-				name: 'addr',
-				type: 'address',
-			},
-		],
-		name: 'checkAtLeastExecutor',
-		outputs: [
-			{
-				internalType: 'bool',
-				name: '',
-				type: 'bool',
-			},
-		],
-		stateMutability: 'view',
-		type: 'function',
-	},
-	{
-		inputs: [
-			{
-				internalType: 'address',
-				name: 'addr',
-				type: 'address',
-			},
-		],
-		name: 'checkAtLeastMember',
-		outputs: [
-			{
-				internalType: 'bool',
-				name: '',
-				type: 'bool',
-			},
-		],
-		stateMutability: 'view',
-		type: 'function',
-	},
-	{
-		inputs: [
-			{
-				internalType: 'address',
-				name: 'executor',
-				type: 'address',
-			},
-		],
-		name: 'checkExecutor',
-		outputs: [
-			{
-				internalType: 'bool',
-				name: '',
-				type: 'bool',
-			},
-		],
-		stateMutability: 'view',
-		type: 'function',
-	},
-	{
-		inputs: [
-			{
-				internalType: 'address',
-				name: 'member',
-				type: 'address',
-			},
-		],
-		name: 'checkMember',
-		outputs: [
-			{
-				internalType: 'bool',
-				name: '',
-				type: 'bool',
-			},
-		],
-		stateMutability: 'view',
-		type: 'function',
-	},
-	{
-		inputs: [
-			{
 				internalType: 'bytes32',
 				name: 'role',
 				type: 'bytes32',
@@ -401,71 +281,6 @@ export const MembershipABI = [
 				type: 'bool',
 			},
 		],
-		stateMutability: 'view',
-		type: 'function',
-	},
-	{
-		inputs: [
-			{
-				internalType: 'address',
-				name: 'addr',
-				type: 'address',
-			},
-		],
-		name: 'verifyAdmin',
-		outputs: [],
-		stateMutability: 'view',
-		type: 'function',
-	},
-	{
-		inputs: [
-			{
-				internalType: 'address',
-				name: 'addr',
-				type: 'address',
-			},
-		],
-		name: 'verifyAtLeastExecutor',
-		outputs: [],
-		stateMutability: 'view',
-		type: 'function',
-	},
-	{
-		inputs: [
-			{
-				internalType: 'address',
-				name: 'addr',
-				type: 'address',
-			},
-		],
-		name: 'verifyAtLeastMember',
-		outputs: [],
-		stateMutability: 'view',
-		type: 'function',
-	},
-	{
-		inputs: [
-			{
-				internalType: 'address',
-				name: 'addr',
-				type: 'address',
-			},
-		],
-		name: 'verifyExecutor',
-		outputs: [],
-		stateMutability: 'view',
-		type: 'function',
-	},
-	{
-		inputs: [
-			{
-				internalType: 'address',
-				name: 'addr',
-				type: 'address',
-			},
-		],
-		name: 'verifyMember',
-		outputs: [],
 		stateMutability: 'view',
 		type: 'function',
 	},
